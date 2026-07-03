@@ -27,7 +27,7 @@ export function Newsletter() {
           </h2>
           <p className="newsletter-kicker">
             One email a month. Engineering essays, project notes, and the occasional reading list.
-            No tracking, no upsells, easy unsubscribe — and genuinely no AI-generated filler.
+            No tracking, no upsells, easy unsubscribe, and genuinely no AI-generated filler.
           </p>
           {!sent ? (
             <form className="newsletter-form" onSubmit={onSubmit}>

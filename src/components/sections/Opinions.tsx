@@ -37,7 +37,7 @@ export function Opinions() {
               <span className="opinion-mark">“</span>
               <blockquote>{o.quote}</blockquote>
               <figcaption>
-                — <span className="mono">{o.src}</span>
+                <span className="mono">{o.src}</span>
               </figcaption>
             </figure>
           ))}

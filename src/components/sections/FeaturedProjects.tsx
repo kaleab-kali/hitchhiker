@@ -13,7 +13,7 @@ export function FeaturedProjects() {
       <div className="container">
         <SectionHeader
           eyebrow="§ 04 · Featured Work"
-          title="Ten <em>strange new planets</em>."
+          title="Strange <em>new planets</em>."
           kicker="A selection of recent projects. Each one taught me a new way to be wrong, which is the only way I know to get better."
         />
 
@@ -27,7 +27,7 @@ export function FeaturedProjects() {
               onMouseLeave={() => setActive(null)}
               onClick={(e) => {
                 e.preventDefault();
-                openDetail('project', p);
+                openDetail(p);
               }}
               data-hover
             >
@@ -46,9 +46,6 @@ export function FeaturedProjects() {
               <div className="project-meta">
                 <span className="project-year">{p.year}</span>
                 <span className="project-role">{p.role}</span>
-                <span className="project-metric" style={{ color: p.color }}>
-                  {p.metric}
-                </span>
               </div>
               <div className="project-arrow">↗</div>
             </a>

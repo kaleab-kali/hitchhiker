@@ -3,12 +3,10 @@ import { SectionHeader } from '../atoms/SectionHeader';
 import { Reveal } from '../atoms/Reveal';
 import { Tag } from '../atoms/Tag';
 import { ARTICLES } from '../../data/content';
-import { useDetail } from '../../store/detail';
 
 export function Writing() {
   const [filter, setFilter] = useState('All');
   const [query, setQuery] = useState('');
-  const { openDetail } = useDetail();
 
   const allTags = useMemo(() => {
     const s = new Set<string>(['All']);
@@ -54,16 +52,11 @@ export function Writing() {
 
         <Reveal className="writing-grid">
           {filtered.map((a) => (
-            <article
+            <a
               key={a.id}
               className="article-card"
               data-hover
-              onClick={() => openDetail('article', a)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') openDetail('article', a);
-              }}
+              href={`#/blog/${a.id}`}
             >
               <div className="article-meta">
                 <span className="mono article-date">{a.date}</span>
@@ -84,7 +77,7 @@ export function Writing() {
                 </div>
                 <span className="article-cta">read →</span>
               </div>
-            </article>
+            </a>
           ))}
           {filtered.length === 0 && (
             <p className="writing-empty mono">// no transmissions match that filter.</p>

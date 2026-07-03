@@ -8,7 +8,7 @@ interface NavProps {
 const LINKS: Array<[string, string]> = [
   ['work', 'Work'],
   ['writing', 'Writing'],
-  ['talks', 'Talks'],
+  // ['talks', 'Talks'], // hidden for now, uncomment to show
   ['now', 'Now'],
   ['uses', 'Uses'],
   ['contact', 'Contact'],

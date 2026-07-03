@@ -12,23 +12,23 @@ interface Line {
 const COMMANDS: Record<string, () => string[] | '__clear__'> = {
   help: () => [
     'available transmissions:',
-    '  about       — who is this guy',
-    '  skills      — primary stack',
-    '  projects    — list featured projects',
-    '  socials     — find me elsewhere',
-    '  contact     — say hello',
-    '  whoami      — existential answer',
-    '  42          — the answer',
-    '  panic       — i told you not to',
-    '  clear       — wipe terminal',
+    '  about       - who is this guy',
+    '  skills      - primary stack',
+    '  projects    - list featured projects',
+    '  socials     - find me elsewhere',
+    '  contact     - say hello',
+    '  whoami      - existential answer',
+    '  42          - the answer',
+    '  panic       - i told you not to',
+    '  clear       - wipe terminal',
   ],
   about: () => [
-    'kaleab girma zeleke — engineer, writer, hitchhiker.',
+    'kaleab girma zeleke: engineer, writer, hitchhiker.',
     'currently in low earth orbit.',
   ],
   skills: () => ['rust · typescript · dart/flutter · python · postgres · aws · llms'],
   projects: () =>
-    FEATURED_PROJECTS.slice(0, 5).map((p) => `  ${p.year}  ${p.name}  — ${p.role}`),
+    FEATURED_PROJECTS.slice(0, 5).map((p) => `  ${p.year}  ${p.name}  - ${p.role}`),
   socials: () => SOCIALS.map((s) => `  ${s.label.padEnd(10)} ${s.handle}`),
   contact: () => [`mailto:${ME.email}`, 'or grab the form below ↓'],
   whoami: () => ['a mostly-harmless engineer.'],
@@ -92,7 +92,7 @@ export function Terminal() {
               <span className="terminal-dot" style={{ background: '#ff5f56' }}></span>
               <span className="terminal-dot" style={{ background: '#ffbd2e' }}></span>
               <span className="terminal-dot" style={{ background: '#27c93f' }}></span>
-              <span className="terminal-title mono">~/hitchhiker — zsh</span>
+              <span className="terminal-title mono">~/hitchhiker - zsh</span>
             </div>
             <div className="terminal-body" ref={bodyRef}>
               {lines.map((l, i) => (

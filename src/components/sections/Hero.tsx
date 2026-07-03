@@ -23,7 +23,7 @@ export function Hero() {
         <div className="hero-main">
           <p className="hero-greeting">Hello, traveler.</p>
           <h1 className="hero-title display">
-            I'm <em>Kaleab</em>—<br />
+            I'm <em>Kaleab</em>,<br />
             they call me<br />
             the <em>Hitchhiker</em> Dev.
           </h1>

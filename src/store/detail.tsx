@@ -1,31 +1,27 @@
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from 'react';
-import type { Article, Project } from '../data/content';
-
-export type DetailKind = 'project' | 'article';
-export type DetailItem = Project | Article;
+import type { Project } from '../data/content';
 
 interface DetailState {
   open: boolean;
-  kind: DetailKind | null;
-  item: DetailItem | null;
+  item: Project | null;
 }
 
 interface DetailContextValue extends DetailState {
-  openDetail: (kind: DetailKind, item: DetailItem) => void;
+  openDetail: (item: Project) => void;
   closeDetail: () => void;
 }
 
 const DetailContext = createContext<DetailContextValue | null>(null);
 
 export function DetailProvider({ children }: { children: ReactNode }) {
-  const [state, setState] = useState<DetailState>({ open: false, kind: null, item: null });
+  const [state, setState] = useState<DetailState>({ open: false, item: null });
 
-  const openDetail = useCallback((kind: DetailKind, item: DetailItem) => {
-    setState({ open: true, kind, item });
+  const openDetail = useCallback((item: Project) => {
+    setState({ open: true, item });
   }, []);
 
   const closeDetail = useCallback(() => {
-    setState({ open: false, kind: null, item: null });
+    setState({ open: false, item: null });
   }, []);
 
   const value = useMemo(

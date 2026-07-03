@@ -239,6 +239,11 @@ button, input, textarea { font-family: inherit; cursor: none; }
   to { transform: translateX(-50%); }
 }
 
+/* skills as a single marquee row */
+.skills-marquees { margin-top: 8px; }
+.skills-marquees .marquee { padding: 26px 0; }
+.skills-marquees .marquee-track { font-size: 36px; }
+
 /* ─────────── sections-1.jsx ─────────── */
 .nav {
   position: fixed; top: 0; left: 0; right: 0;
@@ -676,10 +681,13 @@ button, input, textarea { font-family: inherit; cursor: none; }
   border: 1px solid var(--line-soft);
 }
 .article-card {
+  display: block;
   background: var(--bg);
   padding: 36px;
   transition: background 0.3s;
   cursor: none;
+  color: inherit;
+  text-decoration: none;
 }
 .article-card:hover { background: var(--bg-2); }
 .article-meta {
@@ -1131,6 +1139,8 @@ button, input, textarea { font-family: inherit; cursor: none; }
 .dm-essay-author h4 { font-family: var(--serif); font-size: 22px; color: var(--ink); margin-bottom: 6px; font-weight: 500; }
 .dm-essay-author p { font-size: 16px !important; color: var(--ink-2); margin: 0 !important; }
 
+.dm-spec-3 { grid-template-columns: repeat(3, 1fr); }
+
 @media (max-width: 720px) {
   .dm-article { padding: 0 24px 60px; }
   .dm-head { padding: 32px 0 24px; }
@@ -1141,4 +1151,40 @@ button, input, textarea { font-family: inherit; cursor: none; }
   .dm-pull blockquote { font-size: 20px; }
   .dm-essay { font-size: 18px; }
   .dm-essay-foot { flex-direction: column; }
+}
+
+/* ─────────── blog page (article as standalone page) ─────────── */
+.blog-page {
+  min-height: 100vh;
+  padding: 120px 0 80px;
+}
+.blog-page-inner {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.blog-back {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+  padding: 10px 16px;
+  transition: all 0.2s;
+}
+.blog-back:hover { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+.blog-article {
+  border: 1px solid var(--line);
+  background: var(--bg);
+  margin-top: 16px;
+}
+.blog-article.dm-article { padding: 0 80px 80px; }
+@media (max-width: 720px) {
+  .blog-page { padding: 96px 0 48px; }
+  .blog-article.dm-article { padding: 0 24px 60px; }
 }

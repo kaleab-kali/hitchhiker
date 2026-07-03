@@ -15,7 +15,7 @@ const INITIAL: Entry[] = [
   },
   {
     name: 'miguel s.',
-    msg: 'saw you speak at rustconf — the bit about replay was gold.',
+    msg: 'saw you speak at rustconf, the bit about replay was gold.',
     date: '1 week ago',
   },
   {

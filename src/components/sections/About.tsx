@@ -4,12 +4,12 @@ const ENTRIES = [
   {
     num: 'I',
     k: 'Origin',
-    v: "Started writing code in Addis Ababa. Kept at it across three continents, a handful of timezones, and one stubborn refusal to settle.",
+    v: "Started writing code in Addis Ababa. Kept at it working with teams across three continents, a handful of timezones, and one stubborn refusal to settle.",
   },
   {
     num: 'II',
     k: 'The name',
-    v: "“Hitchhiker Dev” stuck because I move around a lot — and because every codebase feels like a strange new planet worth visiting.",
+    v: "“Hitchhiker Dev” stuck because I travel a lot, not physically, but through international work and codebases. Every codebase feels like a strange new planet worth visiting.",
   },
   {
     num: 'III',
@@ -34,7 +34,7 @@ export function About() {
 
         <Reveal as="blockquote" className="about-pull">
           <span className="about-pull-mark">“</span>
-          I build software like a traveler packs a <em>towel</em> —<br />
+          I build software like a traveler packs a <em>towel</em>:<br />
           practically, stubbornly, and with a great deal<br />
           of <em>affection</em>.
         </Reveal>
@@ -71,7 +71,7 @@ export function About() {
         <Reveal className="about-facts">
           <div className="fact">
             <span className="fact-k">Based in</span>
-            <span className="fact-v">Addis Ababa ↔ Berlin</span>
+            <span className="fact-v">Addis Ababa, Ethiopia</span>
           </div>
           <div className="fact">
             <span className="fact-k">Ships in</span>
