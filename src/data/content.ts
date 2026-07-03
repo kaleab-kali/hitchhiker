@@ -19,6 +19,13 @@ export interface SkillGroup {
   items: string[];
 }
 
+export interface ProjectDetail {
+  problem: string;
+  approach: string;
+  results: string;
+  learned: string;
+}
+
 export interface Project {
   id: number;
   name: string;
@@ -28,6 +35,7 @@ export interface Project {
   tags: string[];
   url: string;
   color: string;
+  detail: ProjectDetail;
 }
 
 export interface ArchiveProject {
@@ -35,6 +43,11 @@ export interface ArchiveProject {
   name: string;
   tags: string[];
   note: string;
+}
+
+export interface ArticleSection {
+  h2?: string;
+  text: string;
 }
 
 export interface Article {
@@ -45,6 +58,8 @@ export interface Article {
   views: string;
   tags: string[];
   excerpt: string;
+  body: ArticleSection[];
+  quote?: string;
 }
 
 export interface Talk {
@@ -84,8 +99,8 @@ export const ME: Me = {
 };
 
 export const SOCIALS: Social[] = [
-  { label: "GitHub",   handle: "@hitchhikerdev",     url: "https://github.com/hitchhikerdev" },
-  { label: "Twitter",  handle: "@hitchhikerdev",     url: "https://twitter.com/hitchhikerdev" },
+  { label: "GitHub",   handle: "@kaleab-kali",       url: "https://github.com/kaleab-kali" },
+  { label: "X",        handle: "@hitch_hiker_dev",   url: "https://x.com/hitch_hiker_dev" },
   { label: "LinkedIn", handle: "kaleab-girma",       url: "https://linkedin.com/in/kaleab-girma" },
   { label: "Substack", handle: "hitchhiker.sub",     url: "https://hitchhiker.substack.com" },
   { label: "YouTube",  handle: "@hitchhikerdev",     url: "https://youtube.com/@hitchhikerdev" },
@@ -111,6 +126,12 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["Fintech", "Ecommerce", "Payments"],
     url: "#",
     color: "#d4a574",
+    detail: {
+      problem: "Online buyers and sellers in Ethiopia had no neutral party holding funds. Payment moved up front, trust broke down, and ecommerce stalled on both sides of every transaction.",
+      approach: "Designed an escrow account flow where buyer funds land in a segregated account, the seller ships, and money releases only on confirmed delivery. Dispute states, settlement reports, and bank integrations were built in from day one.",
+      results: "The first escrow platform of its kind in Ethiopia. Months of work with banking partners before the first birr moved, and the system handles live marketplace transactions today.",
+      learned: "In fintech the code is the easy half. Compliance, reconciliation, and clear failure states are what make people trust software with their money.",
+    },
   },
   {
     id: 12,
@@ -121,6 +142,12 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["Fintech", "Trading", "Capital Markets"],
     url: "#",
     color: "#a78bfa",
+    detail: {
+      problem: "The Ethiopian Securities Exchange launched with no local tooling for brokers: no BBO feed, no order management, nothing between a broker's phone line and the market.",
+      approach: "Built the first BBO and order management system for ESX: order entry and validation, best bid and offer aggregation, execution tracking, and an audit trail designed for regulator review.",
+      results: "Live for the opening chapter of Ethiopian capital markets. Handles broker order flow end to end and keeps evolving with the exchange's rulebook.",
+      learned: "Market infrastructure punishes ambiguity. Every order state must be explicit, logged, and recoverable, because in trading systems 'probably fine' is an outage.",
+    },
   },
   {
     id: 13,
@@ -131,6 +158,12 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["SaaS", "Fintech", "Governance"],
     url: "#",
     color: "#7dd3a0",
+    detail: {
+      problem: "Companies with hundreds or thousands of shareholders were managing them in spreadsheets: registries, dividends, meeting invitations, and votes, all manual and error prone.",
+      approach: "Built ShareOS as a shareholder operating system: a clean registry as the single source of truth, with dividends, general assembly meetings, voting, and shareholder communication layered on top.",
+      results: "Companies run shareholder operations in one place instead of five spreadsheets. Registry data that took weeks to reconcile is now live and auditable.",
+      learned: "Replacing spreadsheets is not a technical problem, it is a trust migration. Import tools and side-by-side verification mattered more than any headline feature.",
+    },
   },
   {
     id: 14,
@@ -141,6 +174,12 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["Web", "Mobile", "Consumer"],
     url: "#",
     color: "#f97316",
+    detail: {
+      problem: "Family histories live in memory and fade with each generation. There was no dedicated place to preserve a family's story and pass it on.",
+      approach: "Built Tarik as a digital family legacy vault on web and mobile: timelines, photos, written and spoken stories, and public share links so a family's history can be found by anyone.",
+      results: "Families use it as a living archive across generations. Public links turned private records into shareable heritage, which is the whole point: the family name is remembered.",
+      learned: "Products about memory have to feel permanent. Storage formats, exports, and longevity guarantees were design decisions, not infrastructure details.",
+    },
   },
   {
     id: 15,
@@ -151,6 +190,12 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["Marketplace", "SaaS", "Payments"],
     url: "#",
     color: "#d4a574",
+    detail: {
+      problem: "Entrepreneurs needed expert advice in short bursts, but consulting was sold in retainers and full sessions. Experts had no clean way to charge for exactly the time they gave.",
+      approach: "Built a pay per minute marketplace: metered calls, per-minute billing, expert profiles and availability, and payouts that settle automatically after each session.",
+      results: "Experts price their knowledge by the minute and clients pay only for what they use. The metering and billing core has run reliably since the first live sessions.",
+      learned: "When money maps to a running clock, billing disputes are UX problems. Showing both sides the same timer in real time removed almost all of them.",
+    },
   },
   {
     id: 16,
@@ -161,6 +206,12 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["Mobile", "Tourism", "Gamification"],
     url: "#",
     color: "#a78bfa",
+    detail: {
+      problem: "Tourists in Ethiopia cluster around a few famous sites while hundreds of cultural places go unvisited, and the tourism industry had no playful way to change that.",
+      approach: "Built a mobile app that turns exploring into a game: location-based challenges, points for visiting cultural sites, and incentives redeemable with local partners.",
+      results: "Tourists follow challenge routes to places they would never have found, and partner sites get foot traffic the brochures never delivered.",
+      learned: "Gamification only works when the reward loop is honest. Real incentives from real partners beat digital badges every time.",
+    },
   },
   {
     id: 17,
@@ -171,6 +222,12 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["3D", "EdTech", "WebGL"],
     url: "#",
     color: "#7dd3a0",
+    detail: {
+      problem: "Students learn abstract topics from flat diagrams and memorize theory without ever seeing how a concept behaves in the real world.",
+      approach: "Built Papal, a 3D visualization learning system: topics are rendered as interactive 3D scenes students can rotate, dissect, and manipulate, each tied to a real world application of the concept.",
+      results: "Concepts that took a lecture to describe take minutes to see. Students explore a model, break it, and rebuild it, which is how understanding actually sticks.",
+      learned: "3D for its own sake is a gimmick. Every scene had to answer one question: what does this concept do in the real world?",
+    },
   },
   {
     id: 18,
@@ -181,6 +238,12 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["SDK", "GovTech", "API"],
     url: "#",
     color: "#f97316",
+    detail: {
+      problem: "Every company integrating with Ethiopian government systems (tax, trade licensing, national ID) rebuilt the same brittle integrations from scratch, each with its own bugs.",
+      approach: "Built SDKs that wrap the Ministry of Revenue, Ministry of Trade, Fayda national ID, and other government APIs behind clean, documented, versioned interfaces with sane errors and retries.",
+      results: "Integration work that took teams weeks now takes days. One tested SDK absorbs the quirks of each government endpoint so product teams never have to see them.",
+      learned: "An SDK is a promise. Backward compatibility, clear errors, and honest docs matter more than elegant internals, because other people's production depends on you.",
+    },
   },
   {
     id: 19,
@@ -191,6 +254,12 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["Mobile", "HealthTech", "Search"],
     url: "#",
     color: "#d4a574",
+    detail: {
+      problem: "Finding the right doctor in Addis Ababa meant calling hospitals one by one. Patients had no way to search by specialty, availability, or need across hospitals.",
+      approach: "Built Medan, a medicine app that indexes doctors across hospitals in Addis Ababa and matches patients to them by specialty, need, and location.",
+      results: "Patients search once instead of calling ten reception desks. The doctor directory became a map of the city's care that never existed before.",
+      learned: "Health products live or die on data freshness. Keeping doctor schedules current was harder and more important than any feature in the app.",
+    },
   },
   {
     id: 1,
@@ -201,6 +270,12 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["Rust", "LLM", "Distributed"],
     url: "#",
     color: "#d4a574",
+    detail: {
+      problem: "Prompt-chain systems break in production: no replay, no observability, and failures you cannot reproduce because the same input takes a different path every run.",
+      approach: "Built a Rust agent runtime around deterministic replay, observable internals, and an API small enough to keep in your head. Every side effect is recorded so any run can be replayed exactly.",
+      results: "Brittle chains became replayable workflows. Debugging an agent run went from guesswork to reading a trace.",
+      learned: "The boring parts, error messages and replay tools, are 80% of the developer experience. The fancy parts are the easy part.",
+    },
   },
   {
     id: 2,
@@ -211,6 +286,12 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["Flutter", "ML", "Mobile"],
     url: "#",
     color: "#a78bfa",
+    detail: {
+      problem: "Real-time translation apps assume fast networks. In low-bandwidth regions they simply stop working, which is exactly where translation matters most.",
+      approach: "Ran whisper variants entirely on device, tuned for sub-200ms latency across 41 languages, with graceful degradation on weaker hardware.",
+      results: "Conversations translate live without a connection, and latency stays under a fifth of a second on midrange phones.",
+      learned: "On-device ML is a memory budget negotiation. The model you benchmark is never the model you ship; the model you ship is the one that fits.",
+    },
   },
   {
     id: 3,
@@ -221,6 +302,12 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["TypeScript", "AWS", "DX"],
     url: "#",
     color: "#7dd3a0",
+    detail: {
+      problem: "Spinning up a full developer environment took days of tribal knowledge and YAML archaeology, and every environment drifted from the last.",
+      approach: "Wrapped Terraform in a platform that builds bespoke environments on demand: reproducible underneath, one command on the surface.",
+      results: "New engineers go from laptop to a working environment in minutes instead of days, and environments stopped drifting apart.",
+      learned: "Developer platforms succeed on defaults. Every knob you expose is a decision you failed to make for the user.",
+    },
   },
   {
     id: 4,
@@ -231,6 +318,12 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["Rust", "PostgreSQL", "Open Source"],
     url: "#",
     color: "#f97316",
+    detail: {
+      problem: "Vector search and time-series lived in separate databases, doubling infrastructure and sync headaches for teams that needed both.",
+      approach: "Built a Postgres extension that makes time-series data vector-aware, so one database answers both kinds of question in plain SQL.",
+      results: "Teams dropped an entire database from their stack. Analytics run where the data already lives.",
+      learned: "Extending a thirty-year-old database teaches humility. When your design disagrees with Postgres, Postgres is usually right.",
+    },
   },
   {
     id: 5,
@@ -241,6 +334,12 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["Python", "AI", "Testing"],
     url: "#",
     color: "#d4a574",
+    detail: {
+      problem: "AI agents pass demos and fail in production, and nobody can say why, because the failure space is too improbable to enumerate by hand.",
+      approach: "Built an improbability-driven harness: fuzz prompts and tool responses, trace every failure, and turn each one into a regression test automatically.",
+      results: "Failures that used to hide in production now show up in CI with a trace attached.",
+      learned: "You cannot test nondeterminism with deterministic tests alone. Embrace the fuzz.",
+    },
   },
   {
     id: 6,
@@ -251,6 +350,12 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["Rust", "P2P", "Mobile"],
     url: "#",
     color: "#7dd3a0",
+    detail: {
+      problem: "Apps assume the internet. In low-bandwidth regions the nearest peer is often closer than any server, and that proximity was going unused.",
+      approach: "Built a peer-to-peer mesh networking SDK that lets nearby devices discover and talk to each other with no infrastructure at all.",
+      results: "Deployed across three sub-Saharan field studies, keeping applications alive where connectivity is not.",
+      learned: "Field conditions beat lab assumptions every time. Ship, observe, revise.",
+    },
   },
   {
     id: 7,
@@ -261,6 +366,12 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["AI", "Python", "Eval"],
     url: "#",
     color: "#a78bfa",
+    detail: {
+      problem: "LLM output quality was judged by vibes. Teams shipped regressions without knowing, because nobody measured the same thing twice.",
+      approach: "Built an internal evaluation pipeline that continuously scores model outputs against curated suites, with diffs between runs instead of arguments between people.",
+      results: "Model changes now come with numbers attached. Surprisingly often, the answer is 42.",
+      learned: "An eval you do not automate is an eval you will stop running.",
+    },
   },
   {
     id: 8,
@@ -271,6 +382,12 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["WebGL", "AI", "Viz"],
     url: "#",
     color: "#f97316",
+    detail: {
+      problem: "High-dimensional embeddings are impossible to reason about as spreadsheets of floats. Structure hides in dimensions nobody can see.",
+      approach: "Rendered embedding spaces as navigable 3D nebulae in WebGL, so clusters and outliers become something you can fly through instead of squint at.",
+      results: "Clusters, outliers, and drift became visible at a glance, and embedding bugs started getting caught by eye.",
+      learned: "Visualization is debugging for intuition. If you can see the space, you can reason about it.",
+    },
   },
   {
     id: 9,
@@ -281,6 +398,12 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["Go", "AWS", "DevOps"],
     url: "#",
     color: "#d4a574",
+    detail: {
+      problem: "Cloud bills grow silently until finance notices, and engineers had no tool that explained cost in their own language.",
+      approach: "Built a pessimistic but accurate cost monitor that roasts your AWS bill with citations: every complaint links to the exact resources responsible.",
+      results: "Waste gets named, with receipts. Teams cut spend without a single budget meeting.",
+      learned: "Humor gets a tool adopted. Accuracy is what keeps it installed.",
+    },
   },
   {
     id: 10,
@@ -291,6 +414,12 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["TypeScript", "Vector", "SaaS"],
     url: "#",
     color: "#a78bfa",
+    detail: {
+      problem: "Indie teams needed semantic search but not enterprise pricing or a week of relevance tuning.",
+      approach: "Built search-as-a-service with one endpoint: send documents, get semantic search back, nothing to configure and nothing to tune.",
+      results: "Replaces 90% of typical search tickets with a single integration that indie teams set up in an afternoon.",
+      learned: "For small teams the best feature is the absence of configuration.",
+    },
   },
 ];
 
@@ -307,56 +436,8 @@ export const ARCHIVE_PROJECTS: ArchiveProject[] = [
   { year: "2018", name: "Galaxy Atlas",          tags: ["D3", "Viz"],           note: "Personal reading visualizer" },
 ];
 
-export const ARTICLES: Article[] = [
-  { id: 1, title: "Rust Is Not a Hammer (and Your Side Project Is Not a Nail)",
-    date: "Apr 12, 2026", read: 9, views: "12.4k",
-    tags: ["Rust", "Engineering"],
-    excerpt: "On knowing when borrow-checker pain is worth it, and when reaching for Python is the senior move." },
-  { id: 2, title: "The Quiet Religion of Type Safety",
-    date: "Mar 28, 2026", read: 7, views: "8.1k",
-    tags: ["TypeScript", "Opinion"],
-    excerpt: "Why I converted, why I sometimes lapse, and why neither makes you a better engineer." },
-  { id: 3, title: "On-Device Whisper: A Field Report",
-    date: "Mar 14, 2026", read: 12, views: "21.7k",
-    tags: ["AI", "Mobile", "Flutter"],
-    excerpt: "Six months of shipping speech recognition to phones in places without reliable bandwidth." },
-  { id: 4, title: "Postgres Is the Only Database You Need (Until It Isn't)",
-    date: "Feb 22, 2026", read: 11, views: "34.2k",
-    tags: ["PostgreSQL", "Backend"],
-    excerpt: "A deeply biased love letter, followed by an honest list of when to reach for something else." },
-  { id: 5, title: "Agentic Workflows Are Just Cron Jobs With Extra Steps",
-    date: "Feb 03, 2026", read: 8, views: "15.6k",
-    tags: ["AI", "Opinion"],
-    excerpt: "The hype is exhausting. The boring version is genuinely useful. Here's the boring version." },
-  { id: 6, title: "Flutter at Scale: Lessons From 180k Daily Users",
-    date: "Jan 19, 2026", read: 14, views: "9.3k",
-    tags: ["Flutter", "Mobile"],
-    excerpt: "Memory budgets, isolate strategy, and the unglamorous work of keeping the framerate honest." },
-  { id: 7, title: "Why I Still Read Papers (and You Probably Should Too)",
-    date: "Dec 30, 2025", read: 6, views: "5.2k",
-    tags: ["Career", "AI"],
-    excerpt: "A lightweight system for keeping up without drowning." },
-  { id: 8, title: "Don't Panic: A Junior Engineer's Survival Guide",
-    date: "Dec 11, 2025", read: 10, views: "44.8k",
-    tags: ["Career", "Opinion"],
-    excerpt: "Things I wish someone had told me. Mostly: nobody knows what they're doing, but the good ones know how to find out." },
-  { id: 9, title: "Building a Deterministic LLM Runtime in Rust",
-    date: "Nov 24, 2025", read: 16, views: "18.9k",
-    tags: ["Rust", "AI", "Architecture"],
-    excerpt: "How Vogon trades latency for reproducibility, and why your eval harness will thank you." },
-  { id: 10, title: "Tailwind Is Fine, You Are Fine, We Are All Fine",
-    date: "Nov 02, 2025", read: 5, views: "7.7k",
-    tags: ["Frontend", "Opinion"],
-    excerpt: "A peace treaty after a decade of CSS holy wars." },
-  { id: 11, title: "Kubernetes for People Who Just Wanted a Server",
-    date: "Oct 18, 2025", read: 13, views: "22.1k",
-    tags: ["Infra", "DevOps"],
-    excerpt: "The minimum viable mental model. Skip the certifications." },
-  { id: 12, title: "AI Automation Is the New Spreadsheet",
-    date: "Oct 03, 2025", read: 7, views: "11.4k",
-    tags: ["AI", "Opinion"],
-    excerpt: "Both democratize work, both create a long tail of fragile artifacts. Here's how to ship the durable kind." },
-];
+
+export { ARTICLES } from './articles';
 
 export const TALKS: Talk[] = [
   { year: "2026", title: "The Hitchhiker's Guide to LLM Runtimes", venue: "RustConf", city: "Portland, OR", url: "#" },

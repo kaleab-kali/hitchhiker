@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import type { Article } from '../data/content';
 
 export function ArticlePage({ article: a }: { article: Article }) {
@@ -38,46 +38,15 @@ export function ArticlePage({ article: a }: { article: Article }) {
           <div className="dm-essay">
             <p className="dm-lede">{a.excerpt}</p>
 
-            <p>
-              There is a particular kind of late-night clarity that comes from re-reading code you
-              wrote three months ago and not understanding what your past self was thinking. I have
-              come to believe this clarity is the single most underrated tool in software
-              engineering, and that most of us spend our careers running from it.
-            </p>
-            <p>
-              What I want to argue here is that <em>the boring abstractions win</em>. Not because
-              they are uninteresting, but because they have absorbed the right amount of pain: the
-              kind that only emerges from years of people building real things on top of them,
-              breaking them, and fixing them slightly better.
-            </p>
-
-            <h2 className="dm-h2">A small confession</h2>
-            <p>
-              I used to be the kind of engineer who reached for the newest shiny thing every time a
-              problem appeared. Some of that was curiosity. Most of it, in retrospect, was a way of
-              avoiding the harder work: understanding what was already there.
-            </p>
-            <p>
-              The codebases I admire most are not the ones with the most clever code. They are the
-              ones where every choice feels like it was made by a person who had the time to think.
-            </p>
-
-            <blockquote className="dm-essay-quote">
-              “Most software problems are not solved by writing more software. They are solved by
-              writing slightly less.”
-            </blockquote>
-
-            <h2 className="dm-h2">What I do now</h2>
-            <p>
-              When I'm starting something new, I try to write the smallest possible version of it
-              first, small enough that I could throw it away without grief. Then I let it sit. If it
-              survives a week of poking, I keep it. If it doesn't, I learned something cheap.
-            </p>
-            <p>
-              This is not original advice. The thing nobody tells you is how much patience it takes
-              to actually do it. Most of the time we are not stuck because we lack tools. We are
-              stuck because we are tired of waiting.
-            </p>
+            {a.body.map((s, i) => (
+              <Fragment key={i}>
+                {s.h2 && <h2 className="dm-h2">{s.h2}</h2>}
+                <p>{s.text}</p>
+                {i === 1 && a.quote && (
+                  <blockquote className="dm-essay-quote">“{a.quote}”</blockquote>
+                )}
+              </Fragment>
+            ))}
 
             <div className="dm-essay-foot">
               <div>

@@ -36,25 +36,10 @@ export function DetailModal() {
 
 function ProjectDetail({ p }: { p: Project }) {
   const sections = [
-    {
-      k: 'The problem',
-      v: `Most teams hit a wall when they try to scale ${p.name
-        .split(':')[0]
-        .trim()
-        .toLowerCase()} beyond a prototype. Vendor lock-in, brittle abstractions, and an unhealthy amount of YAML.`,
-    },
-    {
-      k: 'The approach',
-      v: `I built ${p.name} around a few principles: reliable foundations, observable internals, and an API small enough to keep in your head. Everything else falls out of those.`,
-    },
-    {
-      k: 'The results',
-      v: `Built over months of sustained work, not weeks. Shipped to production and refined release after release. Some of these systems are still running and actively maintained to this day.`,
-    },
-    {
-      k: 'What I learned',
-      v: `That the boring parts (error messages, replay tools, debug prints) are 80% of the developer experience. The fancy parts are the easy part.`,
-    },
+    { k: 'The problem', v: p.detail.problem },
+    { k: 'The approach', v: p.detail.approach },
+    { k: 'The results', v: p.detail.results },
+    { k: 'What I learned', v: p.detail.learned },
   ];
 
   return (
@@ -107,14 +92,6 @@ function ProjectDetail({ p }: { p: Project }) {
             </div>
           </section>
         ))}
-
-        <div className="dm-pull">
-          <span className="dm-pull-mark">“</span>
-          <blockquote>
-            The fanciest abstraction in the world cannot save a project from a bad error message.{' '}
-            <em>Boring tools win.</em>
-          </blockquote>
-        </div>
 
         <div className="dm-links">
           <a className="btn primary" href={p.url} data-hover>

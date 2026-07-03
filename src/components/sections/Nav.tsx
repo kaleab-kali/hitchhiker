@@ -10,7 +10,6 @@ const LINKS: Array<[string, string]> = [
   ['writing', 'Writing'],
   // ['talks', 'Talks'], // hidden for now, uncomment to show
   ['now', 'Now'],
-  ['uses', 'Uses'],
   ['contact', 'Contact'],
 ];
 

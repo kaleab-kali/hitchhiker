@@ -14,10 +14,8 @@ import { Archive } from './components/sections/Archive';
 import { Writing } from './components/sections/Writing';
 import { Opinions } from './components/sections/Opinions';
 // import { Talks } from './components/sections/Talks'; // hidden for now, uncomment to show
-import { OpenSource } from './components/sections/OpenSource';
 import { Now } from './components/sections/Now';
 import { Bookshelf } from './components/sections/Bookshelf';
-import { Uses } from './components/sections/Uses';
 import { Terminal } from './components/sections/Terminal';
 import { Newsletter } from './components/sections/Newsletter';
 import { Guestbook } from './components/sections/Guestbook';
@@ -29,7 +27,9 @@ import { ArticlePage } from './components/ArticlePage';
 type Mode = 'dark' | 'light';
 
 function useHashRoute() {
-  const [hash, setHash] = useState(() => window.location.hash);
+  const [hash, setHash] = useState(() =>
+    typeof window === 'undefined' ? '' : window.location.hash
+  );
   useEffect(() => {
     const onChange = () => setHash(window.location.hash);
     window.addEventListener('hashchange', onChange);
@@ -82,10 +82,8 @@ export function App() {
           <Writing />
           <Opinions />
           {/* <Talks /> hidden for now, uncomment to show */}
-          <OpenSource />
           <Now />
           <Bookshelf />
-          <Uses />
           <Terminal />
           <Newsletter />
           <Guestbook />

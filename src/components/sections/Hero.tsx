@@ -13,6 +13,23 @@ export function Hero() {
       <div className="orbit-ring orbit-ring-1" aria-hidden="true"></div>
       <div className="orbit-ring orbit-ring-2" aria-hidden="true"></div>
 
+      <div className="hero-badge" aria-hidden="true">
+        <svg viewBox="0 0 100 100">
+          <defs>
+            <path
+              id="hero-badge-circle"
+              d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"
+            />
+          </defs>
+          <text>
+            <textPath href="#hero-badge-circle">
+              don't panic · mostly harmless · don't panic ·
+            </textPath>
+          </text>
+        </svg>
+        <span className="hero-badge-star">✦</span>
+      </div>
+
       <div className="container hero-grid">
         <div className="hero-meta">
           <span className="eyebrow">

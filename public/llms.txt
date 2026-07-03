@@ -1,0 +1,39 @@
+# Kaleab Girma Zeleke (Hitchhiker Dev)
+
+> Software engineer based in Addis Ababa, Ethiopia. Builds fintech, govtech, and consumer products, LLM runtimes in Rust, mobile apps in Flutter, and open source tools. Works with teams across three continents.
+
+Site: https://kaleabdev.com/
+Email: kaleab.g.zeleke@gmail.com
+
+## Skills
+
+Languages: TypeScript, Rust, Python, Dart, Go, SQL
+Frontend: React, Next.js, Tailwind, Flutter, SwiftUI, Jetpack Compose
+Backend: Node.js, Express, FastAPI, Django, tRPC, GraphQL
+Data and AI: LLM agents, RAG pipelines, PostgreSQL, Redis, Vector DBs, AI automation
+Infra and Cloud: AWS, Docker, Kubernetes, Terraform, CI/CD, Cloudflare
+Mobile: Flutter/Dart, React Native, iOS, Android
+
+## Selected Projects
+
+- Escrow Platform for Ecommerce (2025, Tech Lead): escrow account platform for ecommerce, the first of its kind in Ethiopia. Buyer funds held safely and released only when delivery is confirmed.
+- ESX Order Management (2025, Tech Lead): the first BBO and order management system built for the Ethiopian Securities Exchange, covering order entry, matching, and market data.
+- ShareOS (2024, Tech Lead): shareholder operations system companies use to manage shareholder activities, records, meetings, and communication.
+- Tarik (2024, Tech Lead): digital family legacy vault on web and mobile for storing family history, with shareable public links so the family name is remembered forever.
+- Papal (2024, Tech Lead): 3D visualizer and learning tool that renders topics in 3D so students understand real world applications, not theory alone.
+- Government Integration SDK (2024, Tech Lead): SDKs for integrating with Ethiopian government systems, including the Ministry of Revenue, Ministry of Trade, and Fayda national ID.
+- PayPerMint (2023, Tech Lead): pay per minute platform connecting experts with entrepreneur clients for on-demand, metered consultations.
+- CultureQuest (2023, Tech Lead): mobile app supporting Ethiopian tourism by giving tourists challenges to visit places and earn incentives.
+- Medan (2023, Tech Lead): medicine app that helps people find doctors based on their needs across hospitals in Addis Ababa.
+
+## Writing
+
+Essays on Rust, TypeScript, AI infrastructure, Flutter at scale, PostgreSQL, and engineering careers. Blog posts are at https://kaleabdev.com/#/blog/<id> and listed in the Writing section of the home page.
+
+## Social
+
+- GitHub: https://github.com/kaleab-kali
+- X: https://x.com/hitch_hiker_dev
+- LinkedIn: https://linkedin.com/in/kaleab-girma
+- Substack: https://hitchhiker.substack.com
+- YouTube: https://youtube.com/@hitchhikerdev
